@@ -347,7 +347,7 @@ service ssh restart
 
 ok "❯❯❯ กำลังติดตั้งเมนู " 
 cd
-wget -q -O menu "$kguza/menu/menu"
+wget -q -O menu "https://raw.githubusercontent.com/GunGZN/AxG/main/menu"
 chmod +x menu
 ./menu
 rm -f menu
@@ -358,11 +358,6 @@ chmod +x /usr/bin/bwh
 die "❯❯❯ apt-get update"
 apt-get update -q > /dev/null 2>&1
 service openvpn restart -q > /dev/null 2>&1
-
-#แจ้งเตือนคนรันสคิป
-IP=$(wget -qO- ipv4.icanhazip.com);
-curl -X POST -H 'Authorization: Bearer RSEzjR0dYrnlIGASIopAcT8Ph4uNkm9PYCbcoFTm0Zm' -F 'message='" 
-Load_file  $IP/KGUZA.ovpn "'' https://notify-api.line.me/api/notify > /dev/null 2>&1
 
 echo "ติดตั้งเสร็จเรียบร้อย" > /usr/bin/install_full
 
