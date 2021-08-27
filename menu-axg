@@ -1,0 +1,84 @@
+kguza="https://kguza.net/scrip/u-d/openvpn"
+# download script
+cd /usr/bin
+wget -q -O menu "$kguza/menu/menu.sh"
+wget -q -O a "$kguza/menu/adduser.sh"
+wget -q -O b "$kguza/menu/testuser.sh"
+wget -q -O c "$kguza/menu/ChangPass.sh"
+wget -q -O d "$kguza/menu/changExp.sh"
+wget -q -O e "$kguza/menu/delet.sh"
+wget -q -O f "$kguza/menu/deletuserxp.sh"
+wget -q -O g "$kguza/menu/viewuser.sh"
+wget -q -O h "$kguza/menu/restart.sh"
+wget -q -O i "$kguza/menu/speedtest.py"
+wget -q -O j "$kguza/menu/vnstat.sh"
+wget -q -O k "$kguza/menu/b-user.sh"
+wget -q -O z1 "$kguza/menu/max.sh"
+wget -q -O m "$kguza/menu/lock.sh"
+wget -q -O n "$kguza/menu/unlock.sh"
+wget -q -O o "$kguza/menu/httpcredit.sh"
+wget -q -O p "$kguza/menu/aboutscrip.sh"
+wget -q -O q "$kguza/menu/TimeReboot.sh"
+wget -q -O r "$kguza/menu/backup.sh"
+wget -q -O s "$kguza/menu/setspeed.sh"
+wget -q -O t "$kguza/menu/addfile.sh"
+wget -q -O u "$kguza/menu/ChangPassRoot.sh"
+wget -q -O v "$kguza/menu/deletlimit.sh"
+ wget -q -O w "$kguza/menu/check.sh"
+ wget -q -O x "$kguza/menu/ssh-online.sh"
+ wget -q -O y "$kguza/menu/pptp.sh"
+ wget -q -O z "$kguza/menu/shc.sh"
+wget -q -O cr "$kguza/menu/cr.sh"
+wget -q -O aa "$kguza/menu/add-aa.sh"
+wget -q -O ed "$kguza/menu/edit-host.sh"
+wget -q -O nipa "$kguza/menu/nipa.sh"
+wget -q -O proxy "$kguza/menu/proxy.sh"
+wget -q -O up "$kguza/menu/up.sh"
+wget -q -O panel "$kguza/menu/Ocs-panel.sh"
+wget -q -O sq "$kguza/menu/squid.sh"
+wget -q -O 443 "$kguza/menu/443.sh"
+wget -q -O z2 "$kguza/menu/m443.sh"
+wget -q -O port "$kguza/menu/port.sh"
+wget -q -O squid3.3 "$kguza/menu/squid3.3.sh"
+
+echo "30 3 * * 0 root /sbin/reboot" > /etc/cron.d/reboot
+
+chmod +x menu
+chmod +x a
+chmod +x b
+chmod +x c
+chmod +x d
+chmod +x e
+chmod +x f
+chmod +x g
+chmod +x h
+chmod +x i
+chmod +x j
+chmod +x k
+chmod +x z1
+chmod +x m
+chmod +x n
+chmod +x o
+chmod +x p
+chmod +x q
+chmod +x r
+chmod +x s
+chmod +x t
+chmod +x u
+chmod +x v
+chmod +x w
+chmod +x x
+chmod +x y
+chmod +x z
+chmod +x aa
+chmod +x ed
+chmod +x cr
+chmod +x nipa
+chmod +x proxy
+chmod +x up
+chmod +x panel
+chmod +x sq
+chmod +x 443
+chmod +x z2
+chmod +x port
+chmod +x squid3.3
