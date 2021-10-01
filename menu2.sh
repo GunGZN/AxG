@@ -1,7 +1,7 @@
 kguza="https://kguza.net/scrip/u-d/openvpn"
 # download script
 cd /usr/bin
-wget -q -O m "https://raw.githubusercontent.com/GunGZN/AxG/main/menu.sh"
+wget -q -O m2 "https://raw.githubusercontent.com/GunGZN/AxG/main/menu.sh"
 wget -q -O 01 "$kguza/menu/adduser.sh"
 wget -q -O 02 "$kguza/menu/testuser.sh"
 wget -q -O 03 "$kguza/menu/ChangPass.sh"
@@ -43,7 +43,7 @@ wget -q -O squid3.3 "$kguza/menu/squid3.3.sh"
 
 echo "30 3 * * 0 root /sbin/reboot" > /etc/cron.d/reboot
 
-chmod +x m
+chmod +x m2
 chmod +x 01
 chmod +x 02
 chmod +x 03
