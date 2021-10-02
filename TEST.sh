@@ -2,6 +2,15 @@
 # สคริป​โดย​ lilgunx
 #
 # ======================
+# initializing var
+export DEBIAN_FRONTEND=noninteractive
+MYIP=$(wget -qO- icanhazip.com);
+MYIP2="s/xxxxxxxxx/$MYIP/g";
+NET=$(ip -o $ANU -4 route show to default | awk '{print $5}');
+source /etc/os-release
+ver=$VERSION_ID
+
+
 # Functions
 ok() {
     echo -e '\e[32m'$1'\e[m';
@@ -228,47 +237,11 @@ die "❯❯❯ apt-get install squid3"
 touch /etc/apt/sources.list.d/trusty_sources.list > /dev/null 2>&1
 echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty main universe" | sudo tee --append /etc/apt/sources.list.d/trusty_sources.list > /dev/null 2>&1
 
-#Update
-apt-get update  -q > /dev/null 2>&1
-
-#Install Squid
-apt-get install -y squid3=3.3.8-1ubuntu6 squid=3.3.8-1ubuntu6 squid3-common=3.3.8-1ubuntu6 > /dev/null 2>&1
-
-#Install missing init.d script
-wget -q -O squid3 https://kguza.net/scrip/squid3-3.3.8-1ubuntu6/squid3.sh
-cp squid3 /etc/init.d/
-chmod +x /etc/init.d/squid3
-update-rc.d squid3 defaults
-
-cp /etc/squid3/squid.conf /etc/squid3/squid.conf.orig
-echo "http_port 8080
-acl localhost src 127.0.0.1/32 ::1
-acl to_localhost dst 127.0.0.0/8 0.0.0.0/32 ::1
-acl localnet src 10.0.0.0/8
-acl localnet src 172.16.0.0/12
-acl localnet src 192.168.0.0/16
-acl SSL_ports port 443
-acl Safe_ports port 80
-acl Safe_ports port 21
-acl Safe_ports port 443
-acl Safe_ports port 70
-acl Safe_ports port 210
-acl Safe_ports port 1025-65535
-acl Safe_ports port 280
-acl Safe_ports port 488
-acl Safe_ports port 591
-acl Safe_ports port 777
-acl CONNECT method CONNECT
-acl SSH dst $SERVER_IP-$SERVER_IP/255.255.255.255 
-acl SSH dst 127.0.0.1-127.0.0.1/255.255.255.255                 
-http_access allow SSH
-http_access allow localnet
-http_access allow localhost
-http_access deny all
-refresh_pattern ^ftp:           1440    20%     10080
-refresh_pattern ^gopher:        1440    0%      1440
-refresh_pattern -i (/cgi-bin/|\?) 0     0%      0
-refresh_pattern .               0       20%     4320" > /etc/squid3/squid.conf
+# install squid
+cd
+apt -y install squid3
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/GunGZN/menu-Oxv2/main/squid3.conf"
+sed -i $MYIP2 /etc/squid/squid.conf
 
 #Start squid
 ok "❯❯❯ service squid3 restart"
