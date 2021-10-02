@@ -239,8 +239,8 @@ echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty main universe" | sudo tee 
 
 # install squid
 cd
-apt -y install squid3
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/GunGZN/menu-Oxv2/main/squid3.conf"
+apt -y install squid3 > /dev/null 2>&1
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/GunGZN/menu-Oxv2/main/squid3.conf" 
 sed -i $MYIP2 /etc/squid/squid.conf
 
 #Start squid
